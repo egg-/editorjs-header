@@ -1,3 +1,7 @@
+# egg- Fork Version
+
+Disabled pasteConfig
+
 # Heading Tool
 
 ![Version of EditorJS that the plugin is compatible with](https://badgen.net/badge/Editor.js/v2.0/blue)
@@ -15,7 +19,7 @@ yarn add @editorjs/header
 Include module at your application
 
 ```javascript
-import Header from '@editorjs/header';
+import Header from '@editorjs/header'
 ```
 
 Optionally, you can load this tool from CDN [JsDelivr CDN](https://cdn.jsdelivr.net/npm/@editorjs/header@latest)

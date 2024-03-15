@@ -399,66 +399,8 @@ export default class Header {
     ) : availableLevels;
   }
 
-  /**
-   * Handle H1-H6 tags on paste to substitute it with header Tool
-   *
-   * @param {PasteEvent} event - event with pasted content
-   */
-  onPaste(event) {
-    const content = event.detail.data;
 
-    /**
-     * Define default level value
-     *
-     * @type {number}
-     */
-    let level = this.defaultLevel.number;
 
-    switch (content.tagName) {
-      case 'H1':
-        level = 1;
-        break;
-      case 'H2':
-        level = 2;
-        break;
-      case 'H3':
-        level = 3;
-        break;
-      case 'H4':
-        level = 4;
-        break;
-      case 'H5':
-        level = 5;
-        break;
-      case 'H6':
-        level = 6;
-        break;
-    }
-
-    if (this._settings.levels) {
-      // Fallback to nearest level when specified not available
-      level = this._settings.levels.reduce((prevLevel, currLevel) => {
-        return Math.abs(currLevel - level) < Math.abs(prevLevel - level) ? currLevel : prevLevel;
-      });
-    }
-
-    this.data = {
-      level,
-      text: content.innerHTML,
-    };
-  }
-
-  /**
-   * Used by Editor.js paste handling API.
-   * Provides configuration to handle H1-H6 tags.
-   *
-   * @returns {{handler: (function(HTMLElement): {text: string}), tags: string[]}}
-   */
-  static get pasteConfig() {
-    return {
-      tags: ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'],
-    };
-  }
 
   /**
    * Get Tool toolbox settings
